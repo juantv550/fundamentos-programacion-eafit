@@ -4,7 +4,7 @@ public class Vehiculo {
 
 	Vehiculo[] vehiculos = new Vehiculo[10];
 
-	int tamaño = 2;
+	int tamaño = 10;
 
 	int posAnadir = 0;
 
