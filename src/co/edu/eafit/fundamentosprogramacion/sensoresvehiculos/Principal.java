@@ -35,7 +35,7 @@ public class Principal {
 		while (continua) {
 
 			if (decision == 1) {
-				if (vehiculo.tamaño > vehiculo.posAnadir) {
+				if (vehiculo.getTamaño() > vehiculo.getPosAnadir()) {
 					System.out.println("Ingrese el modelo: ");
 					modelo = lectura.nextInt();
 
@@ -47,7 +47,7 @@ public class Principal {
 
 					Vehiculo siguienteVehiculo = new Vehiculo(modelo, marca, valorComercial);
 
-					vehiculo.getVehiculos()[vehiculo.posAnadir] = siguienteVehiculo;
+					vehiculo.getVehiculos()[vehiculo.getPosAnadir()] = siguienteVehiculo;
 					vehiculo.setPosAnadir(1);
 				} else {
 					System.out.println("Error base de datos llena.");

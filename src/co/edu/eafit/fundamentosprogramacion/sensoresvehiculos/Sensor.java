@@ -2,11 +2,11 @@ package co.edu.eafit.fundamentosprogramacion.sensoresvehiculos;
 
 public class Sensor {
 
-	Sensor[] vehiculos = new Sensor[8];
-	int tamaño = 8;
-	int posAnadir = 0;
-	String tipo;
-	double valorComercial;
+	private Sensor[] vehiculos = new Sensor[8];
+	private int tamaño = 8;
+	private int posAnadir = 0;
+	private String tipo;
+	private double valorComercial;
 
 	public Sensor[] getVehiculos() {
 		return vehiculos;

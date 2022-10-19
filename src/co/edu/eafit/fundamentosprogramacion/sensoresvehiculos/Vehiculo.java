@@ -4,17 +4,17 @@ public class Vehiculo {
 
 	Vehiculo[] vehiculos = new Vehiculo[10];
 
-	int tamaño = 10;
+	private int tamaño = 10;
 
-	int posAnadir = 0;
+	private int posAnadir = 0;
 
-	int modelo;
+	private int modelo;
 
-	String marca;
+	private String marca;
 
-	double valorComercial;
+	private double valorComercial;
 
-	String color;
+	private String color;
 
 	public Vehiculo() {
 		super();
