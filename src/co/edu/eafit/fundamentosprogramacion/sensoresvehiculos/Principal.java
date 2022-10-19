@@ -6,22 +6,38 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println("A continuación lea las siguientes instrucciones: ");
+		System.out.println("0 detiene el programa.");
+		System.out.println("1 para ingresar un vehículo.");
+		System.out.println("2 muestra la información almacenada de los vehículos.");
+		System.out.println("3 cantidad de vehículos almacenados.");
+		System.out.println("4 muestra la información de vehículos con color verde.");
+		System.out.println("5 muestra la información de vehículos con modelo entre el año 2001 y 2021.");
+		System.out.println("6 para ingresar un sensor.");
+		System.out.println("7 muestra la información almacenada de los sensores.");
+		System.out.println("8 cantidad de sensores almacenados.");
+		System.out.println("9 muestra la información de sensores tipo temperatura.");
+		System.out.println("666 muestra la información de sensores tipo temperatura y ordenados por valor comercial.");
+		System.out.println("");
+
 		mostrarMenu();
 	}
 
-	public static void mostrarMenu() {
+	private static void mostrarMenu() {
+
 		Vehiculo vehiculo = new Vehiculo();
-		int modelo;
+		int modelo = 0;
+		String marca = "N/A";
+		double valorComercial = 0;
+		Vehiculo siguienteVehiculo = null;
 
-		String marca;
+		Sensor sensor = new Sensor();
+		String tipo = "N/A";
 
-		double valorComercial;
-
-		System.out.println("Por favor ingrese un 0 O 1, donde cero detiene el programa y 1 para continuar");
 		@SuppressWarnings("resource")
 		Scanner lectura = new Scanner(System.in);
 
-		System.out.println("Ingrese el número: ");
+		System.out.println("Ingrese el número para su necesidad: ");
 
 		boolean continua = true;
 
@@ -45,17 +61,21 @@ public class Principal {
 					System.out.println("Ingrese el valor comercial: ");
 					valorComercial = lectura.nextDouble();
 
-					Vehiculo siguienteVehiculo = new Vehiculo(modelo, marca, valorComercial);
+					siguienteVehiculo = new Vehiculo(modelo, marca, valorComercial);
+
+					System.out.println("Desea ingresar el color de vehículo? S/N ");
+
+					if (lectura.next().toUpperCase().equalsIgnoreCase("S")) {
+						System.out.println("Ingrese el color de vehículo: ");
+						siguienteVehiculo = new Vehiculo(modelo, marca, valorComercial, lectura.next());
+					}
 
 					vehiculo.getVehiculos()[vehiculo.getPosAnadir()] = siguienteVehiculo;
 					vehiculo.setPosAnadir(1);
 				} else {
-					System.out.println("Error base de datos llena.");
+					System.out.println("Error base de datos de vehículos llena.");
 				}
 			}
-
-			System.out.println("Que desea hacer? ");
-			decision = lectura.nextInt();
 
 			if (decision == 0) {
 				System.out.println("Gracias por utilizarnos. Te esperamos de nuevo!");
@@ -72,8 +92,52 @@ public class Principal {
 
 			// por desarrollar
 			if (decision == 4) {
-				System.out.println(vehiculo.toStringVehiculos());
+				System.out.println(vehiculo.obtenerVehiculosVerdes(vehiculo));
 			}
+
+			if (decision == 5) {
+				System.out.println(vehiculo.obtenerVehiculosPorModelo(vehiculo));
+			}
+
+			if (decision == 6) {
+				if (sensor.getTamaño() > sensor.getPosAnadir()) {
+
+					System.out.println("Ingrese el tipo: ");
+					tipo = lectura.next();
+
+					System.out.println("Ingrese el valor comercial: ");
+					valorComercial = lectura.nextDouble();
+
+					sensor.getSensores()[sensor.getPosAnadir()] = new Sensor(tipo, valorComercial);
+					sensor.setPosAnadir(1);
+				} else {
+					System.out.println("Error base de datos de sensores llena.");
+				}
+
+				if (tipo.equalsIgnoreCase("temperatura")) {
+					sensor.setCantidadSensoresTemperatura(1);
+				}
+			}
+
+			if (decision == 7) {
+				System.out.println(sensor.toStringSensores());
+			}
+
+			if (decision == 8) {
+				System.out.println(sensor.cantidadSensores());
+			}
+
+			if (decision == 9) {
+				System.out.println(sensor.getSensoresTemperatura(sensor).toStringSensores());
+			}
+
+			if (decision == 666) {
+				Sensor sensorParam = sensor.getSensoresTemperatura(sensor);
+				System.out.println(sensor.getSensoresTemperaturaSort(sensorParam));
+			}
+
+			System.out.println("Que desea hacer? ");
+			decision = lectura.nextInt();
 
 		}
 
