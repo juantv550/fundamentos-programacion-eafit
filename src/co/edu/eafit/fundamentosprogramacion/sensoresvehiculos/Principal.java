@@ -66,7 +66,7 @@ public class Principal {
 
 					System.out.println("Desea ingresar el color de vehículo? S/N ");
 
-					if (lectura.next().toUpperCase().equalsIgnoreCase("S")) {
+					if (lectura.next().equalsIgnoreCase("S")) {
 						System.out.println("Ingrese el color de vehículo: ");
 						siguienteVehiculo = new Vehiculo(modelo, marca, valorComercial, lectura.next());
 					}
