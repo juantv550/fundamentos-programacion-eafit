@@ -29,6 +29,7 @@ public class Principal {
 		int modelo = 0;
 		String marca = "N/A";
 		double valorComercial = 0;
+		//
 		Vehiculo siguienteVehiculo = null;
 
 		Sensor sensor = new Sensor();
@@ -69,7 +70,7 @@ public class Principal {
 						System.out.println("Ingrese el color de vehículo: ");
 						siguienteVehiculo = new Vehiculo(modelo, marca, valorComercial, lectura.next());
 					}
-
+					
 					vehiculo.getVehiculos()[vehiculo.getPosAnadir()] = siguienteVehiculo;
 					vehiculo.setPosAnadir(1);
 				} else {

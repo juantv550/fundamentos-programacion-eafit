@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Sensor implements Comparable<Sensor> {
 
-	private Sensor[] sensores = new Sensor[2];
-	private int tamaño = 2;
+	private Sensor[] sensores = new Sensor[3];
+	private int tamaño = 3;
 	private int posAnadir = 0;
 	private int cantidadSensoresTemperatura;
 	private String tipo;

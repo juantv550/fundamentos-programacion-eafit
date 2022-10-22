@@ -3,7 +3,7 @@ package co.edu.eafit.fundamentosprogramacion.sensoresvehiculos;
 public class Vehiculo {
 
 	private Vehiculo[] vehiculos = new Vehiculo[10];
-	private int tamaño = 10;
+	private int tamaño = 2;
 	private int posAnadir = 0;
 	private int modelo;
 	private String marca;
@@ -111,7 +111,7 @@ public class Vehiculo {
 		String vehiculosVerdes = "Vehículos registrados con color verde. \n \n";
 		if (vehiculo.cantidadVehiculos() > 0) {
 			for (int i = 0; i < vehiculo.cantidadVehiculos(); i++) {
-				if (vehiculo.getVehiculos()[i].getColor().toUpperCase().equalsIgnoreCase("verde")) {
+				if (vehiculo.getVehiculos()[i].getColor().equalsIgnoreCase("verde")) {
 					vehiculosVerdes = vehiculosVerdes + posicionVehiculo + " | " + vehiculo.getVehiculos()[i].toString()
 							+ "\n";
 					++posicionVehiculo;
